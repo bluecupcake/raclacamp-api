@@ -59,3 +59,8 @@ def get_one_activity(activityId):
 def get_concerts_scene_date(scene, date):
     SELECT_CONCERTS = "SELECT * FROM concerts WHERE scene = '{}' AND date_day = '{}';".format(scene, date)
     return get_data_from_db(SELECT_CONCERTS)
+
+@main.get('/concerts/<artistId>')
+def get_concerts_of_artist(artistId):
+    SELECT_CONCERTS_OF_ARTIST = "SELECT * FROM concerts WHERE artist_id = {};".format(artistId)
+    return get_data_from_db(SELECT_CONCERTS_OF_ARTIST)
